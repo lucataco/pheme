@@ -233,11 +233,11 @@ class Predictor(BasePredictor):
             default="male_voice",
             choices=[
                 "male_voice",
-                "POD1000000004_S0000246", 
-                "POD1000000018_S0000253", 
-                "POD1000000048_S0000035", 
-                "YOU1000000006_S0000051", 
-                "YOU1000000044_S0000798", 
+                "POD0000004393_S0000029", 
+                "POD0000007005_S0000568", 
+                "POD0000009720_S0000244", 
+                "POD0000014360_S0000082", 
+                "POD0000015908_S0000037",
             ]
         ),
         top_k: int = Input(
@@ -264,7 +264,7 @@ class Predictor(BasePredictor):
         parser.add_argument("--temperature", type=float, default=temperature)
         parser.add_argument("--top_k", type=int, default=top_k)
         parser.add_argument("--voice", type=str, default=voice)
-        args = parser.parse_args()
+        args = parser.parse_args([])
         
         client = PhemeClient(args)
         audio_array = client.infer(prompt, voice)
